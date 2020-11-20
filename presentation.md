@@ -1,11 +1,13 @@
 ![Docker logo](https://raw.githubusercontent.com/theodorosploumis/docker-presentation/gh-pages/img/docker_logo.png)
 
-## Docker for Developers - Introduction
-
-#### [Python Meetup Thessaloniki](http://www.meetup.com/PyThess/), 15 April 2016
-
-###### [TheodorosPloumis.com](http://www.theodorosploumis.com/en) / [@theoploumis](http://twitter.com/theoploumis)
+# Day
 ________________________
+
+####Présentation Par Jonathan Duval
+###### Source: [Github](https://github.com/cheerz/docker-presentation)
+________________________
+#### Credit
+###### [TheodorosPloumis.com](http://www.theodorosploumis.com/en) / [@theoploumis](http://twitter.com/theoploumis)
 
 ###### Get them: [online presentation](http://theodorosploumis.github.io/docker-presentation/) / [source code](https://github.com/theodorosploumis/docker-presentation) / [docker image](https://hub.docker.com/r/tplcom/docker-presentation/)
 
@@ -13,24 +15,40 @@ ________________________
 
 ---
 
-### Let me ask you
+### Qu’est ce que docker 
 
-- Who knows about [Docker](http://docker.com)?
-- Who uses Docker for development?
-- Who uses Docker in production?
-- Who tried but could not do it?
+- La Petite histoire d'un mastodonte
+- Non ce n’est pas une VM !
 
 ---
 
-### What is Docker (v1.11)
+### Une Petite histoire et un grand destin
 
-> Docker is an open platform for developing, shipping, and running applications.
+ ##### Créer par 
+ #### Solomon Hykes ([@solomonstre](https://twitter.com/solomonstre)) 
+ #### En Mars 2013
+ #### Sous license Apache 2.0
+________________________
 
-> Docker allows you to package an application with all of its dependencies into a standardized unit for software development.
+#### Docker c'est aussi :
+  - 4 Millions de dev travaillant avec
+  - 3000 Contributeurs
+  - 5.8 Millions d'image docker
+  - Pour un total de 105 Milliard d'image téléchargé
+________________________
+
+##### source: [Docker statistics](https://expandedramblings.com/index.php/docker-statistics-facts/)
 
 ---
 
-### Docker vs VMs
+### Non ce n’est pas une VM !
+
+- 
+
+
+---
+
+### Non ce n’est pas une VM !
 
 ![Docker vs traditional Virtualization](https://insights.sei.cmu.edu/assets/content/VM-Diagram.png)
 
@@ -167,7 +185,7 @@ A (hosted) service containing repositories of images which responds to the Regis
 
 ---
 
-### Steps of a Docker workflow
+### Steps of a Docker wworkflow
 
 ```
 docker run -i -t -d ubuntu:15.04 /bin/bash
