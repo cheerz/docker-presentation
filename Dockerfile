@@ -1,8 +1,8 @@
-FROM nimmis/alpine-apache
-MAINTAINER Theodoros Ploumis <me@theodorosploumis.com>
+FROM nginx:alpine
+LABEL maintainer="Jonathan Duval <jonathan.duval@cheerz.com>"
 
 # Add the whole repo.
-ADD . /web/html
+ADD ./conf/nginx-default.conf /etc/nginx/conf.d/default.conf
 
-# Set this as initial path when ssh logging.
-WORKDIR /web/html
+
+EXPOSE 80
