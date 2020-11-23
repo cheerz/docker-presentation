@@ -1,4 +1,4 @@
-![Docker logo](https://raw.githubusercontent.com/theodorosploumis/docker-presentation/gh-pages/img/docker_logo.png)
+![Docker logo](https://raw.githubusercontent.com/cheerz/docker-presentation/main/img/docker_logo.png)
 
 # Day
 ________________________
@@ -15,9 +15,10 @@ ________________________
 
 ---
 
-### Qu’est ce que docker 
+### Intruction docker 
 
 - La Petite histoire d'un mastodonte
+- Qu’est ce que docker 
 - Non ce n’est pas une VM !
 
 ---
@@ -41,10 +42,10 @@ ________________________
 
 ---
 
-### Non ce n’est pas une VM !
+### Qu’est ce que docker 
+  > Docker est une plateforme open source pour développer livrer et faire tourner des applications.
 
-- 
-
+  > Docker vous permet de packager une application avec toutes ses dépendences dans un standard conçu pour le développement d'application.
 
 ---
 
@@ -150,7 +151,7 @@ A Client with a Daemon as also as the docker-compose tool. Usually referred simp
 
 ### Docker machine
 
-![Docker machine logo](https://raw.githubusercontent.com/theodorosploumis/docker-presentation/gh-pages/img/docker_machine.png)
+![Docker machine logo](https://raw.githubusercontent.com/cheerz/docker-presentation/main/img/docker_machine.png)
 
 A tool which makes it really easy to create Docker hosts on your computer,
 on cloud providers and inside your own data center.
@@ -161,7 +162,7 @@ Required for Mac, Windows users.
 
 ### Docker compose
 
-![Docker compose logo](https://raw.githubusercontent.com/theodorosploumis/docker-presentation/gh-pages/img/docker_compose.png)
+![Docker compose logo](https://raw.githubusercontent.com/cheerz/docker-presentation/main/img/docker_compose.png)
 
 A tool for defining and running complex applications with Docker
 (eg a multi-container application) with a single file.
@@ -170,7 +171,7 @@ A tool for defining and running complex applications with Docker
 
 ### Docker swarm
 
-![Docker swarm logo](https://raw.githubusercontent.com/theodorosploumis/docker-presentation/gh-pages/img/docker_swarm.png)
+![Docker swarm logo](https://raw.githubusercontent.com/cheerz/docker-presentation/main/img/docker_swarm.png)
 
 A native clustering tool for Docker. Swarm pools together several Docker
 hosts and exposes them as a single virtual Docker host. It scale up to multiple hosts.
@@ -179,7 +180,7 @@ hosts and exposes them as a single virtual Docker host. It scale up to multiple 
 
 ### Docker distribution
 
-![Docker distribution logo](https://raw.githubusercontent.com/theodorosploumis/docker-presentation/gh-pages/img/docker_distribution.png)
+![Docker distribution logo](https://raw.githubusercontent.com/cheerz/docker-presentation/main/img/docker_distribution.png)
 
 A (hosted) service containing repositories of images which responds to the Registry API.
 
@@ -528,7 +529,7 @@ There are known best practices (see a list at [examples/tips](https://github.com
 
 ### Questions?
 
-![Pythons over Docker!](https://raw.githubusercontent.com/theodorosploumis/docker-presentation/gh-pages/img/docker_logo.png)
+![Pythons over Docker!](https://raw.githubusercontent.com/cheerz/docker-presentation/main/img/docker_logo.png)
 
 [Review this presentation](https://goo.gl/lkau9t)
 
