@@ -53,7 +53,7 @@ ________________________
 
 ### Non ce n’est pas une VM !
 <!-- TODO Internaliser l'image -->
-![Docker vs traditional Virtualization](https://insights.sei.cmu.edu/assets/content/VM-Diagram.png)
+![Docker vs traditional Virtualization](https://raw.githubusercontent.com/cheerz/docker-presentation/main/img/VM-Diagram.png)
 
 ##### source: [CMU post by Joe Yankel](https://insights.sei.cmu.edu/devops/2015/01/devops-and-docker.html)
 
@@ -69,7 +69,7 @@ ________________________
 
 ### Les tables de la lois
 
- - Toute les informations concernant :
+#### Toute les informations concernant :
  - Les dépendences 
  - Comment build l'application
  - La configuration de l'application
@@ -88,20 +88,18 @@ ________________________
 
 ### Je suis ISO prod !
 
- - Comme tout est inscrit et versionné avec votre application, la prod fera exactement la même chose.
- - Donc peut importe sur quel machine/OS est lancé votre application, elle fonctionnera toujours pareil.
+ - C'était écrit d'avance !
+ - Le context devient secondaire
+ - C'est répétable a l'infini
 
 ---
 
 ### J’install ce que je veux, quand je veux, où je veux
 
- - Base de donnée relationnel (ou non)
- - Système de cache
- - Proxy
- - Firewall
- - queuing 
- - Sur n'importe quel langage de programation, compilé ou non, fonctionnel ou objet, peu importe.
- - Dans une bibliothèque de 5.8 millions d'images, si vous ne trouvez pas votre bonheur c'est que vous n'avez pas assez cherché.
+ - N'importe quel dépendence
+ - Sur n'importe quel langage
+ - Dans n'importe quel version
+ - A partir d'une mega bibliotheque
 
 ##### THE [Docker hub](https://hub.docker.com/search?q=&type=image)
 
@@ -109,7 +107,7 @@ ________________________
 <!-- TODO internaliser l'image -->
 ### L'architecture Docker
 
-![Docker architecture](https://docs.docker.com/engine/images/architecture.svg)
+![Docker architecture](https://raw.githubusercontent.com/cheerz/docker-presentation/f7f2587172be4dd32e2ec97bb4938a508b4e3902/img/architecture.svg)
 ###### Plus d'information sur la documentation [Understanding docker](https://docs.docker.com/engine/understanding-docker/)
 
 ---
@@ -117,7 +115,7 @@ ________________________
 ### Les images
 
   - Le pull et les registry
-  - Le build ou les fameuse table de la lois
+  - Le build et Dockerfile ou les fameuse table de la lois
   - Le Dockerfile, les instructions : FROM, COPY, ARG, RUN
   - Le storage et les layers
   - L'héritage
@@ -130,9 +128,10 @@ ________________________
 
 ---
 
-### Le build ou les fameuse table de la lois
-  - Si vous ne trouvez pas exactement votre bonheur
-  - Si vous souhaitez modifier ou ajouter un petit truc sur une image existante
+### Le build et Dockerfile ou les fameuse table de la lois
+  - On s'appuit sur une image existante
+  - On liste nos dépendences
+  - On met notre application 
   - Bref c'est la customisation
 
 ---
@@ -142,6 +141,7 @@ ________________________
   - COPY
   - ARG
   - RUN
+
 ---
 
 ### Le storage et les layers
@@ -149,6 +149,7 @@ ________________________
   - Versionning couche par couche
   - Le nombre de couche dépend du nombre d'instruction
   - Le but étant de limiter la bande passante et le temps de pull
+
 ---
 
 ### L'héritage
@@ -168,7 +169,7 @@ ________________________
 
 ### Retour du schema d'architecture
 
-![Docker architecture](https://docs.docker.com/engine/images/architecture.svg)
+![Docker architecture](https://raw.githubusercontent.com/cheerz/docker-presentation/f7f2587172be4dd32e2ec97bb4938a508b4e3902/img/architecture.svg)
 ###### Plus d'information sur la documentation [Understanding docker](https://docs.docker.com/engine/understanding-docker/)
 
 ---
@@ -191,6 +192,10 @@ ________________________
 ### Le port mapping
   - Les containers sont fermé par defaut
   - Port host versus container port
+  > Port mapping 8080:80
+  > On doit avoir un `EXPOSE 80` dans le Dockerfile
+  > et on y accède via l'adresse `127.0.0.1:8080` ou `localhost:8080`
+
 
 ---
 
@@ -213,15 +218,17 @@ ________________________
   - Docker exec pour jouer avec un container qui tourne déjà
   - Docker logs pour voir ce qu’il se passe
   - Stop ou kill petit retour au source de la CLI
+  - Enfin le RM pour faire le ménage
 
 ---
 
 ### Les pièges classique et comment les éviter
-  - 
+  - Les images prennent très vite du volume
+  - Utiliser le network host c'est mal !
+  - Oublier l'héritage et tout rebuild a chaque fois !
 
 ---
 
 ### Docker-compose
-  - Quand je vous est dit que ca rend fainéant vous allez découvrir pourquoi
   - Toute la prod dans un fichier !
 <!-- TODO a retravailler -->
