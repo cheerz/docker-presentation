@@ -4,7 +4,7 @@ ARG BUNDLE_INSTALL_FROZEN='true'
 
 WORKDIR /nodeApp
 
-COPY package.json .
+COPY . .
 
 RUN npm install
 
