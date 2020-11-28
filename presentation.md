@@ -107,7 +107,8 @@ ________________________
 
 ## Les inconvénients
   - oui mais !
-  <!-- TODO add MEME -->
+
+  ![Docker architecture](https://github.com/cheerz/docker-presentation/blob/main/img/yes-but.jpg?raw=true)
 
 ---
 ### L'architecture Docker
