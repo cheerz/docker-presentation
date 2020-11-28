@@ -27,6 +27,9 @@ alias dall="docker ps -a"
 # Remove all unamed images
 alias docker-rm-unnamed="docker rmi $(docker images | grep '^<none>' | awk '{print $3}')"
 
+# Make a big savage clean
+alias docker-cleab="docker system prune -af"
+
 # Remove all containers that have exited
 function docker-rm-exited() {
   docker rm -v $(docker ps -a -q -f status=exited)
@@ -66,51 +69,4 @@ function docker-pull-all(){
 # Remove all networks
 function docker-rm-network() {
   docker network rm $(docker network ls --format '{{.Name}}')
-}
-
-# Update all docker* software (Linux specific)
-function docker-update(){
-
-  # docker-machine
-  echo -n ">> Docker-machine version (eg 0.7.1 or empty to abort): "
-  read machine_version
-
-  # docker-compose
-  echo -n ">> Docker-compose version (eg 1.7.1 or empty to abort): "
-  read compose_version
-
-  # docker-engin
-  echo -n ">> Update docker-engine (docker)? [Y/n]: "
-  read update_engine
-
-  if [[ ${machine_version} ]]
-  then
-    sudo rm /usr/local/bin/docker-machine
-    curl -L https://github.com/docker/machine/releases/download/v"${machine_version}"/docker-machine-`uname -s`-`uname -m` > /usr/local/bin/docker-machine
-    chmod +x /usr/local/bin/docker-machine
-  else
-    echo -e ">> No docker-machine version entered, continue."
-  fi
-
-  if [[ ${compose_version} ]]
-  then
-    sudo rm /usr/local/bin/docker-compose
-    curl -L https://github.com/docker/compose/releases/download/"${compose_version}"/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
-    chmod +x /usr/local/bin/docker-compose
-  else
-    echo -e ">> No docker-compose version entered, continue."
-  fi
-
-  # docker-engine
-  if [[ ${update_engine} =~ ^([yY][eE][sS]|[yY])$ ]]
-  then
-    echo -e ">> Updading docker-engine"
-    sudo apt-get update
-    sudo apt-get upgrade docker-engine
-  fi
-
-  # debug
-  docker -v
-  docker-machine -v
-  docker-compose -v
 }

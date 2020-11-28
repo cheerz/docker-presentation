@@ -1,6 +1,6 @@
 ![Docker logo](https://raw.githubusercontent.com/cheerz/docker-presentation/main/img/docker_logo.png)
 
-# Day
+# theory
 ________________________
 
 ####Présentation Par Jonathan Duval
@@ -104,7 +104,12 @@ ________________________
 ##### THE [Docker hub](https://hub.docker.com/search?q=&type=image)
 
 ---
-<!-- TODO internaliser l'image -->
+
+## Les inconvénients
+  - oui mais !
+  <!-- TODO add MEME -->
+
+---
 ### L'architecture Docker
 
 ![Docker architecture](https://raw.githubusercontent.com/cheerz/docker-presentation/f7f2587172be4dd32e2ec97bb4938a508b4e3902/img/architecture.svg)
@@ -138,6 +143,7 @@ ________________________
 
 ### Le Dockerfile, les instructions
   - FROM
+  - WORKDIR
   - COPY
   - ARG
   - RUN
@@ -179,7 +185,7 @@ ________________________
   - EXPOSE
   - ENTRYPOINT
   - CMD
-  
+
 ---
 
 ### Le volume mapping
@@ -193,7 +199,9 @@ ________________________
   - Les containers sont fermé par defaut
   - Port host versus container port
   > Port mapping 8080:80
+
   > On doit avoir un `EXPOSE 80` dans le Dockerfile
+
   > et on y accède via l'adresse `127.0.0.1:8080` ou `localhost:8080`
 
 
@@ -211,7 +219,7 @@ ________________________
 ### Le link de container
   - Les containers par défaut sont isolé
   - Mini dns interne
-  
+
 ---
 
 ### Je joue avec mes containers
@@ -232,3 +240,8 @@ ________________________
 ### Docker-compose
   - Toute la prod dans un fichier !
 <!-- TODO a retravailler -->
+
+
+---
+
+### Resources

@@ -23,6 +23,10 @@
     * Sur n'importe quel langage de programation, compilé ou non, fonctionnel ou objet, peu importe.
     * Et le tout en pouvant choisir précisément la version
     * Comme dit précédement c'est une bibliothèque de 5.8 millions d'images, si vous ne trouvez pas votre bonheur, la plupart du temps c'est que vous n'avez pas assez cherché.
+## Les inconvénients
+  * Cette partie là m'a donné du fil a retordre, a chaque fois que je pensais a un défaut je trouvais un contre exemple ou il sagisssait d'une mauvaise pratique
+  * Par exemple "Docker consome des ressources pour tourner" => oui mais ! => "les VM aussi etc en comparaison docker est vraiment léger"
+  * Ou alors "Docker ca prend beaucoup de place et ca duplique les dépendences" => Oui mais ! => "en vrai les dépendences ne sont pas dupliqué si on utilise les images correctement, et niveau place c'est finalement assez optimisez", on reviendra dessus plus tard au niveau des pièges a éviter
 ## L'architecture Docker
   * Montrer le schema rapidement
   * Le client on vera ca en workshop
@@ -43,6 +47,7 @@
   ### Le Dockerfile, les instructions : FROM, COPY, RUN, ARG
     * Chaque action précédément cité s'appuit sur une de ces instructions
     * FROM : c'est l'image sur laquelle on s'appuit
+    * WORKDIR : c'est juste pour définir le path de référence, ca revient a faire un `cd` 
     * RUN : On lance des commande système pour installer une application tierce,parser un ficher, faire un curl etc ...
     * COPY: C'est ainsi qu'on récupère des fichier locaux et qu'on les met dans son application
     * ARG : Pour passer des arguments pour le build

@@ -7,10 +7,12 @@
   * ### Les tables de la lois
   * ### Je suis ISO prod !
   * ### J’install ce que je veux, quand je veux, où je veux
+## Les inconvénients
+  * ### oui mais !
 ## Les images (X min)
   * ### Le pull et les registry
   * ### Le build et Dockerfile ou les fameuse table de la lois
-  * ### Le Dockerfile, les instructions : FROM, COPY, RUN, ARG
+  * ### Le Dockerfile, les instructions : FROM, WORKDIR, COPY, RUN, ARG
   * ### Le storage et les layers
   * ### L'héritage
 ## Les containers (oui docker c’est pas que ca) (X min)
