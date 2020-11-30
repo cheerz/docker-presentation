@@ -52,7 +52,6 @@ ________________________
 ---
 
 ### Non ce n’est pas une VM !
-<!-- TODO Internaliser l'image -->
 ![Docker vs traditional Virtualization](https://raw.githubusercontent.com/cheerz/docker-presentation/main/img/VM-Diagram.png)
 
 ##### source: [CMU post by Joe Yankel](https://insights.sei.cmu.edu/devops/2015/01/devops-and-docker.html)
@@ -131,7 +130,7 @@ ________________________
 ### Le *pull* et les *registry*
   - La principale source d'image docker
   - *Dockerhub* c'est du bonheur
-  - Les registry privés
+  - Les *registry* privés
 
 ---
 
@@ -172,7 +171,15 @@ ________________________
 ### L'héritage
   - On peut *pull* une image déjà construite et la modifier
   - L'héritage se faire grâce au système de couches
-  <!-- TODO ajouter scooby doo fait sont sandwich https://media.giphy.com/media/Ay2yAQgxhFD7a/giphy.gif et  tony stark présente le mark 1 iron man 1-->
+---
+
+### L'héritage illustration 1
+  ![Iron man Mark 1](https://raw.githubusercontent.com/cheerz/docker-presentation/f7f2587172be4dd32e2ec97bb4938a508b4e3902/img/architecture.svg)
+
+---
+
+### L'héritage illustration 2
+  ![scooby doo](https://media.giphy.com/media/Ay2yAQgxhFD7a/source.gif)
 
 ---
 
