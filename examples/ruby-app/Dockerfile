@@ -1,19 +1,14 @@
-FROM ruby:2.7.2
-ENV INSTALL_PATH /rubyApp
-ARG BUNDLE_INSTALL_FROZEN='true'
+FROM docker.pkg.github.com/cheerz/cheerz-ruby-docker-image/ruby:2.6.6
+ENV INSTALL_PATH /komposite
+ENV RAILS_ENV production
 
-WORKDIR /rubyApp
-
-RUN gem install bundler:2.1.4
+WORKDIR /komposite
+RUN gem install bundler:2.0.2
 
 COPY Gemfile Gemfile.lock ./
-
-RUN bundle config build.nokogiri --use-system-libraries && \
-bundle config set frozen "$BUNDLE_INSTALL_FROZEN" && \
-bundle check || \
-bundle install --jobs=4 --retry=3
-
+RUN bundle config build.nokogiri && \ 
+bundle check || bundle install --frozen --jobs=4 --retry=3 --without development
+COPY . .
 
 EXPOSE 3000
-
-CMD ["bundle", "exec", "puma"]
+CMD ["bin/rails", "s", "-b", "0.0.0.0"]
