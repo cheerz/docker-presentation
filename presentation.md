@@ -1,6 +1,6 @@
 ![Docker logo](https://raw.githubusercontent.com/cheerz/docker-presentation/main/img/docker_logo.png)
 
-# theory
+# theorie
 ________________________
 
 ####Présentation Par Jonathan Duval
@@ -62,7 +62,7 @@ ________________________
 ### Les avantages 
 
 - Les tables de la lois
-- Je suis ISO prod !
+- Je suis iso-prod !
 - J’install ce que je veux, quand je veux, où je veux
 
 ---
@@ -71,7 +71,7 @@ ________________________
 
 #### Toute les informations concernant :
  - Les dépendences 
- - Comment build l'application
+ - Comment construire l'application
  - La configuration de l'application
  - Comment lancer l'application
 
@@ -86,7 +86,7 @@ ________________________
   
 ---
 
-### Je suis ISO prod !
+### Je suis iso-prod !
 
  - C'était écrit d'avance !
  - Le context devient secondaire
@@ -97,16 +97,16 @@ ________________________
 ### J’install ce que je veux, quand je veux, où je veux
 
  - N'importe quel dépendence
- - Sur n'importe quel langage
- - Dans n'importe quel version
- - A partir d'une mega bibliotheque
+ - Sur n'importe quelle langage
+ - Dans n'importe quelle version
+ - A partir d'une méga-bibliotheque
 
 ##### THE [Docker hub](https://hub.docker.com/search?q=&type=image)
 
 ---
 
 ## Les inconvénients
-  - oui mais !
+  - Oui ... mais !
 
   ![Docker architecture](https://github.com/cheerz/docker-presentation/blob/main/img/yes-but.jpg?raw=true)
 
@@ -120,121 +120,144 @@ ________________________
 
 ### Les images
 
-  - Le pull et les registry
-  - Le build et Dockerfile ou les fameuse table de la lois
-  - Le Dockerfile, les instructions : FROM, COPY, ARG, RUN
-  - Le storage et les layers
+  - Le *pull* et les *registry*
+  - Le *build* et *Dockerfile* ou les fameuse table de la lois
+  - Le *Dockerfile*, les instructions : *FROM, COPY, ARG, RUN*
+  - Le *storage* et les *layers*
   - L'héritage
 
 ---
 
-### Le pull et les registry
-  - La principal source de docker
-  - Dockerhub c'est du bonheur
+### Le *pull* et les *registry*
+  - La principale source d'image docker
+  - *Dockerhub* c'est du bonheur
+  - Les registry privés
 
 ---
 
-### Le build et Dockerfile ou les fameuse table de la lois
-  - On s'appuit sur une image existante
-  - On liste nos dépendences
+### Le *build* et *Dockerfile* ou les fameuse table de la lois
+  - On s'appuie sur une image existante
+  - On liste nos dépendances
   - On met notre application 
-  - Bref c'est la customisation
+  - Bref, c'est l'adaptation de l'image à notre besoin
 
 ---
 
-### Le Dockerfile, les instructions
-  - FROM
-  - WORKDIR
-  - COPY
-  - ARG
-  - RUN
+### Le *Dockerfile*, les instructions
+  FROM  
+  `FROM ruby:2.7`
+
+  WORKDIR  
+  `WORKDIR /ruby-app`
+
+  COPY  
+  `COPY . .`
+
+  ARG  
+  `ARG BUNDLE_INSTALL_FROZEN="true"`
+
+  RUN  
+  `RUN apt install vips:8.9`
 
 ---
 
-### Le storage et les layers
+### Le *storage* et les *layers*
   - Système de découpage des images
-  - Versionning couche par couche
-  - Le nombre de couche dépend du nombre d'instruction
-  - Le but étant de limiter la bande passante et le temps de pull
+  - Versionning couche par couches
+  - Le nombre de couche dépend du nombre d'instructions
+  - Le but est de limiter la bande passante et le temps de pull
 
 ---
 
 ### L'héritage
-  - On peut pull une image déjà construite et la modifier
-  - L'héritage se faire grâce au système de couche
+  - On peut *pull* une image déjà construite et la modifier
+  - L'héritage se faire grâce au système de couches
+  <!-- TODO ajouter scooby doo fait sont sandwich https://media.giphy.com/media/Ay2yAQgxhFD7a/giphy.gif et  tony stark présente le mark 1 iron man 1-->
 
 ---
 
-### Les containers
-  - Le Dockerfile , les instructions (la suite) : ENV, EXPOSE, ENTRYPOINT, CMD
-  - Le volume mapping
-  - Le port mapping
-  - Le network
-  - Le link de container
+### Les conteneurs
+  - Le *Dockerfile* , les instructions (la suite) : *ENV, EXPOSE, ENTRYPOINT, CMD*
+  - Le *volume mapping*
+  - Le *port mapping*
+  - Le *network*
+  - Le *link* de conteneurs
 
 ---
 
-### Retour du schema d'architecture
+### Retour du schéma d'architecture
 
 ![Docker architecture](https://raw.githubusercontent.com/cheerz/docker-presentation/f7f2587172be4dd32e2ec97bb4938a508b4e3902/img/architecture.svg)
 ###### Plus d'information sur la documentation [Understanding docker](https://docs.docker.com/engine/understanding-docker/)
 
 ---
 
-### Le Dockerfile , les instructions (la suite)
-  - ENV
-  - EXPOSE
-  - ENTRYPOINT
-  - CMD
+### Le *Dockerfile*, les instructions (la suite)
+  ENV  
+  `ENV APP_ENV="developpement"`
 
----
+  EXPOSE  
+  `EXPOSE 8080`
 
-### Le volume mapping
-  - Attacher a l'hote un point de montage
-  - Faire un point de montage commun entre deux container
+  ENTRYPOINT  
+  `ENTRYPOINT ["bundle","exec","rspec"]`
 
-
----
-
-### Le port mapping
-  - Les containers sont fermé par defaut
-  - Port host versus container port
-  > Port mapping 8080:80
-
-  > On doit avoir un `EXPOSE 80` dans le Dockerfile
-
-  > et on y accède via l'adresse `127.0.0.1:8080` ou `localhost:8080`
+  CMD  
+  `CMD ["bundle","exec","puma"]`
 
 
 ---
 
-### Le network
-  - Le bridge 
-  - Le host
-  - Le none
+### Le *volume mapping*
+  - Attacher a l'hôte un point de montage
+  - Faire un point de montage commun entre deux conteneurs
+  - exemple:  
+  `docker run ... -v <HOST_PATH>:<CONTAINER_PATH> ...`
+
+---
+
+### Le *port mapping*
+  - Les containers sont fermés par defaut
+  - *Host port* VS *container port*
+  - exemple :  
+  `docker run ... -p <HOST_PORT>:<CONTAINER_PORT> ...`  
+
+  *Port mapping* `8080:80`  
+  On doit avoir un `EXPOSE 80` dans le Dockerfile  
+  et on y accède via l'adresse `127.0.0.1:8080` ou `localhost:8080`
+
+
+---
+
+### Le *network*
+  - Le *__bridge__*  : mode pont
+  - Le *__host__*  : mode réseau de l'hôte
+  - Le *__none__* : mode sans réseau
 
 ##### Plus de détail sur [Docker network](https://docs.docker.com/network/)
 
 ---
 
-### Le link de container
-  - Les containers par défaut sont isolé
-  - Mini dns interne
+### Le *link* de conteneurs
+  - Les conteneurs sont, par défaut, isolés
+  - Mini DNS interne
 
 ---
 
 ### Je joue avec mes containers
-  - Docker exec pour jouer avec un container qui tourne déjà
-  - Docker logs pour voir ce qu’il se passe
-  - Stop ou kill petit retour au source de la CLI
-  - Enfin le RM pour faire le ménage
+  - `docker build` pour construire son image
+  - `docker run` pour lancer son image
+  - `docker exec` pour jouer avec un conteneur qui tourne déjà
+  - `docker logs` pour voir ce qu’il se passe
+  - `docker stop` ou `docker kill` pour arrêter son conteneur, petit retour au source de la CLI
+  - Enfin le `docker rm` pour supprimer son conteneur
 
 ---
 
-### Les pièges classique et comment les éviter
+### Les pièges classiques et comment les éviter
   - Les images prennent très vite du volume
-  - Utiliser le network host c'est mal !
-  - Oublier l'héritage et tout rebuild a chaque fois !
+  - Utiliser le *network host* c'est mal !
+  - Oublier l'héritage et réinventer la roue a chaque fois !
 
 ---
 

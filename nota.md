@@ -37,6 +37,8 @@
     * En vrai on ne fait jamais de dockerfile sans pull une source
     * Par defaut un Docker est vide !( rien pas de package manager, pas de commande de base quenini)
     * On s'appuit sur la puissance et la connaissance de 4 millions d'utilisateur
+    * On peut créer des registry privé pour faire ses petites images custom 
+    * Les registry privé fonctionne exactement de la même façon que les registry publique
   ### Le build et Dockerfile ou les fameuse table de la lois
     * Aller on est partis sur du concret
     * ca se construit de la facon suivante
