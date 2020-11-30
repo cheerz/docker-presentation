@@ -166,20 +166,13 @@ ________________________
   - Le nombre de couche dépend du nombre d'instructions
   - Le but est de limiter la bande passante et le temps de pull
 
+![Iron man Mark 1](https://github.com/cheerz/docker-presentation/blob/main/img/iron-man-mark-1-layer-complete%20.gif?raw=true)
+
 ---
 
 ### L'héritage
   - On peut *pull* une image déjà construite et la modifier
   - L'héritage se faire grâce au système de couches
----
-
-### L'héritage illustration 1
-  ![Iron man Mark 1](https://raw.githubusercontent.com/cheerz/docker-presentation/f7f2587172be4dd32e2ec97bb4938a508b4e3902/img/architecture.svg)
-
----
-
-### L'héritage illustration 2
-  ![scooby doo](https://media.giphy.com/media/Ay2yAQgxhFD7a/source.gif)
 
 ---
 
@@ -265,6 +258,8 @@ ________________________
   - Les images prennent très vite du volume
   - Utiliser le *network host* c'est mal !
   - Oublier l'héritage et réinventer la roue a chaque fois !
+
+![scooby doo](https://media.giphy.com/media/Ay2yAQgxhFD7a/source.gif)
 
 ---
 
