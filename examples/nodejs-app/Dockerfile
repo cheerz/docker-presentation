@@ -1,6 +1,4 @@
-FROM node:14
-
-ARG BUNDLE_INSTALL_FROZEN='true'
+FROM node:14-alpine
 
 WORKDIR /nodeApp
 
@@ -8,6 +6,6 @@ COPY . .
 
 RUN npm install
 
-EXPOSE 80
+EXPOSE 3000
 
 CMD ["npm", "start"]
