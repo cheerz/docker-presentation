@@ -265,7 +265,6 @@ ________________________
 
 ### Docker-compose
   - Toute la prod dans un fichier !
-<!-- TODO a retravailler -->
 
 
 ---
