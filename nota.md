@@ -1,4 +1,4 @@
-# NOTA
+# NOTA theorique
 ## Qu’est ce que docker (X min)
   ### Petit historique rapide
     * Présentation rapide des chiffres
@@ -138,3 +138,63 @@
   * C'est comme la factorisation du code, c'est un compromis entre réusabilité et praticité d'emploi
 ## Docker-compose (X min)
   ### Toute la prod dans un fichier !
+    * Docker compose est un facilitateur, il permet d'orchestrer dans une moindre mesure tout une application et ses service tiers en un seul fichier
+    * C'est très vague je sais, mais docker-compose a été concu pour facilité la vie, et il est donc bien plus pratique de montrer se d'on il capable que de l'expliquer
+    * Donc on vera plus en avant son utilité et comment on l'utilise dans la partie pratique
+
+
+# NOTA pratique
+## Par où on commence
+* Comme tout bon projet, on se fait un petit répertoire
+* On créer une application de base (base de code a vous de voir)
+* On créer son dockerfile 
+* On cherche le FROM
+* On met son petit workdir indispensable
+* On copie son application (COPY)
+* On installe les dépendences (RUN)
+* On met le port d'écoute (EXPOSE)
+* On met la commande d'exécution (CMD)
+* On build sont docker
+* Et hop miracle ca fonctionne !
+* On arrête, on fait comme ci on passait a autre chose, et hop misère le container veut pas s'arrêter
+* Du coup perplexe  google est mon amis
+* j'applique la solution trouvé
+* je cherche comment forcer l'arrêt de mon container 
+* J'applique
+* Je rebuild
+* je relance
+* je test mon app 
+* je test l'arrêt
+
+## ma première db et mon premier link
+* C'est bien mignon les hello world mais c'est pas une application !
+* On fait de la pratique pas des POC
+* Maintenant comme dans la vrai vie mon application a besoin d'une base de donnée (mysql par exemple)
+* Bon cherchons sur google comment lancer mysql dans docker
+* Hop je trouve la commande docker run et hop je lance ca dans mon terminal.
+* Voila j'ai une base de donnée
+* Je traffique un peu mon code pour qu'il écrive quelque chose dans la BDD
+* Je relance mon application et paf une erreur
+* Ajouter le link a la commande run
+* Relancer
+
+## Mon premier docker-compose
+* Donc si on résume le mes actions précédentes, j'ai du rentré pas loin d'une 10ene de commande
+* Avec plein de paramètre et issue de pas mal de recherche, c'est un peu soulant, et franchement pas pratique pour un env de dev
+* On va utiliser pour se simplifier la vie docker compose
+* je retourne sur mon onglet docker hub et je copie colle le docker-compose d'exemple
+* Je le modifie un peu pour ajouter mon application et virer l'inutile
+* et je lance avec docker-compose up
+* et la magie j'ai tout
+* Et hop je rajoute un petit redis pour mon application
+
+## Mon premier volume
+* Un des problème courant lorsque vous utilisez docker et notament sur les base de donnée c'est que lorsque l'on éteint l'application tout les donnée sont perdus
+* C'est problématique et pour palier a ce soucis on peut créer un volume
+* Retourner sur le tab docker hub mysql
+* Chercher volume et copier le moins v
+* L'adapter au docker-compose
+* Le lancer une première fois corriger les erreurs
+* Le lancer une seconde fois corriger l'erreur du .dockerignore
+
+# FIN DU WORKSHOP C'est partie pour les questions !
